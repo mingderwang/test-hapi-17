@@ -2,14 +2,14 @@
   "name": "test-hapi-17",
   "description": "simple hapi v17 app + next",
   "version": "0.0.2",
-  "author": "Ming-der Wang <mingder78@yahoo.com>",
+  "author": "Ming-der Wang <ming@log4analytics.com>",
   "contributors": [],
   "repository": {
     "type": "git",
     "url": "https://github.com/mingderwang/test-hapi-17.git"
   },
   "engines": {
-    "node" : ">=7.6.0" 
+    "node": ">=7.6.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +19,6 @@
     "analyze": "cross-env ANALYZE=1 next build"
   },
   "keywords": [],
-  "author": "Ming-der Wang <ming@log4analytics.com>",
   "license": "MIT",
   "dependencies": {
     "cross-env": "^5.0.1",
@@ -27,9 +26,16 @@
     "hapi": "^17.2.0",
     "inert": "^5.1.0",
     "next": "latest",
+    "next-redux-wrapper": "^1.0.0",
     "path": "^0.12.7",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
     "webpack-bundle-analyzer": "^2.8.2"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.2"
   }
 }
