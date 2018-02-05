@@ -1,7 +1,7 @@
 {
   "name": "test-hapi-17",
-  "description": "simple hapi v17 app + next",
-  "version": "0.0.2",
+  "description": "simple hapi v17 app + next + redux-thunk",
+  "version": "0.0.3",
   "author": "Ming-der Wang <ming@log4analytics.com>",
   "contributors": [],
   "repository": {
