@@ -1,25 +1,35 @@
-const Hapi = require('hapi');
+const next = require('next')
+const Hapi = require('hapi')
+const { pathWrapper, defaultHandlerWrapper, nextHandlerWrapper } = require('./next-wrapper')
 
-(async () => {
-    try {
-        const server = Hapi.Server({
-            host: 'localhost',
-            port: Number(process.argv[2] || 3000)
-        });
+const port = parseInt(process.env.PORT, 10) || 3000
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const server = new Hapi.Server({
+  port
+})
 
-        server.route({
-            path: '/',
-            method: 'GET',
-            handler: (request, h) => {
-                console.log("ming");
-                return 'Hello World!';
-            }
-        });
+app
+.prepare()
+.then(async () => {
 
-        await server.start();
+  server.route({
+    method: 'GET',
+    path: '/_next/{p*}', /* next specific routes */
+    handler: nextHandlerWrapper(app)
+  })
 
-        console.log(`Server running at: ${server.info.uri}`);
-    } catch (error) {
-        console.log(error);
-    }
-})();
+  server.route({
+    method: 'GET',
+    path: '/{p*}', /* catch all route */
+    handler: defaultHandlerWrapper(app)
+  })
+
+  try {
+    await server.start()
+    console.log(`> Ready on http://localhost:${port}`)
+  } catch (error) {
+    console.log('Error starting server')
+    console.log(error)
+  }
+})

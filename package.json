@@ -1,7 +1,7 @@
 {
   "name": "test-hapi-17",
-  "description": "simple hapi v17 app template",
-  "version": "0.0.1",
+  "description": "simple hapi v17 app + next",
+  "version": "0.0.2",
   "author": "Ming-der Wang <mingder78@yahoo.com>",
   "contributors": [],
   "repository": {
@@ -13,12 +13,23 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js"
+    "dev": "node index.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "analyze": "cross-env ANALYZE=1 next build"
   },
   "keywords": [],
   "author": "Ming-der Wang <ming@log4analytics.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "hapi": "^17.2.0"
+    "cross-env": "^5.0.1",
+    "ganache-cli": "^6.0.3",
+    "hapi": "^17.2.0",
+    "inert": "^5.1.0",
+    "next": "latest",
+    "path": "^0.12.7",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack-bundle-analyzer": "^2.8.2"
   }
 }
